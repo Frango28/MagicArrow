@@ -40,7 +40,7 @@ class Main : JavaPlugin() {
         object : BukkitRunnable() {
             override fun run() {
                 MagicPlayer.onlinePlayers.forEach {
-                    it.tickActionBar()
+                    it.tickAsync()
                 }
             }
         }.runTaskTimerAsynchronously(plugin, 0, 1)
