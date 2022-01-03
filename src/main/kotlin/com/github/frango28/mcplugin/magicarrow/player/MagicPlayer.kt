@@ -38,16 +38,14 @@ class MagicPlayer(p: Player) : MatchPlayer(p) {
             data.reloadTick++
             if (data.reloadTick > 15u) {
                 //弾数 +1
-                data.amount++
+                data.amount = Main.maxArrow
                 data.reloadTick = 0u
                 playSound(sound = Sound.BLOCK_BEACON_DEACTIVATE, pitch = 5.0f)
                 //パーティクル
                 location.add(0.0, 2.2, 0.0).apply {
                     world!!.spawnParticle(Particle.COMPOSTER, this, 4, 0.2, 0.1, 0.2)
                 }
-                if (data.amount >= Main.maxArrow) {
-                    stopReloading()
-                }
+                stopReloading()
             }
         }
     }
